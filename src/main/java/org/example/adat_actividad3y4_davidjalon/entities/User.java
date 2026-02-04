@@ -1,5 +1,6 @@
 package org.example.adat_actividad3y4_davidjalon.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -25,7 +26,7 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude // Esto evita que se llamen de forma infinita
+    @JsonIgnore // <--- FUNDAMENTAL: Evita que el JSON entre en bucle infinito
     private List<Game> games = new ArrayList<>();
 
 }

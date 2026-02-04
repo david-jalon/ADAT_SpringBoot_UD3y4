@@ -53,10 +53,9 @@ public class Game {
     @Column(name = "notes")
     private String notes;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(fetch = FetchType.EAGER) // <--- EAGER: Evita el error "No serializer found for ByteBuddy"
     @JoinColumn(name = "user_id")
-    @ToString.Exclude // Esto evita que se llamen de forma infinita
+    @ToString.Exclude // <--- Evita bucles al hacer logs o imprimir el objeto
     private User user;
 
 
