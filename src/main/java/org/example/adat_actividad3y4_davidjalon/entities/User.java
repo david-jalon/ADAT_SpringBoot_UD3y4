@@ -26,7 +26,7 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore // <--- FUNDAMENTAL: Evita que el JSON entre en bucle infinito
+    @JsonIgnore // Evita que el JSON entre en bucle infinito
     private List<Game> games = new ArrayList<>();
 
 }

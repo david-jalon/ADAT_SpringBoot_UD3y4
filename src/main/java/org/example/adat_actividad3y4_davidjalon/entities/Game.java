@@ -55,7 +55,7 @@ public class Game {
 
     @ManyToOne(fetch = FetchType.EAGER) // <--- EAGER: Evita el error "No serializer found for ByteBuddy"
     @JoinColumn(name = "user_id")
-    @ToString.Exclude // <--- Evita bucles al hacer logs o imprimir el objeto
+    @ToString.Exclude // Evita bucles al hacer logs o imprimir el objeto
     private User user;
 
 
